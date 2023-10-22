@@ -7,12 +7,7 @@ api_token= '6944672764:AAHqOLGcNqNWPR5cEe2WBIEXIm7FAnxQ5bo' #token
 
 bot = telebot.TeleBot(api_token) 
 
-loc1_items = [40]
-loc2_items = [25]
-loc3_items = [0]
-loc4_items = [19]
-loc5_items = [100]
-
+#словарь с локациями value здесь это кол-во бутылок в автомате по адресу
 locations = {
     'ТРЦ "Ривьера"':40,
     'ТЦК "Смоленский пассаж"':25,
@@ -20,12 +15,14 @@ locations = {
     'ТРЦ "Океания"':19,
     'ТРЦ "РИО" Ленинский':100
 }
+#по-идее мусор и можно делитнуть
 socials = {
     'Instagram':'ref',
     'Website':'ref',
     'VK':'ref',
     'Telegram':'ref'
 }
+#отправляем приветствие и инициализируем кнопки
 @bot.message_handler(commands = ['start'])
 def start_message(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -54,7 +51,7 @@ def start_message(message):
     bot.send_message(message.chat.id,'Присоединяйся к нашему сообществу:',reply_markup=inlinemarkup)
     bot.send_photo(message.chat.id,open("D:\\Bots\\drinkbot\\drinkbotpic1.jpg",'rb'))
  
-
+#работа с запросами от кнопок
 @bot.message_handler(content_types=['text'])
 def on_click(message):
     if message.text == 'Карта "ПЕЙ"':
@@ -117,6 +114,7 @@ def on_click(message):
     else:
         bot.send_message(message.chat.id,'unknown query')
 
+#работа с запросами от inline кнопок, пока что это только запрос кода из автомата, кнопка back я считаю не нужна 
 @bot.callback_query_handler(func = lambda callback:True)
 def callback_message(callback):
     if callback.data == 'get bottle':
