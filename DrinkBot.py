@@ -49,7 +49,7 @@ def start_message(message):
     inlinemarkup.row(inlbtn3,inlbtn4)
     time.sleep(3)
     bot.send_message(message.chat.id,'Присоединяйся к нашему сообществу:',reply_markup=inlinemarkup)
-    bot.send_photo(message.chat.id,open("D:\\Bots\\drinkbot\\drinkbotpic1.jpg",'rb'))
+    bot.send_photo(message.chat.id,open("D:\\Bots\\drinkbot\\drinkbotpic1.jpg",'rb')) #хз как вставить path с гита, пока только так
  
 #работа с запросами от кнопок
 @bot.message_handler(content_types=['text'])
