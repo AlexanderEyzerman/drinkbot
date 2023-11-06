@@ -7,7 +7,7 @@ api_token= '6944672764:AAHqOLGcNqNWPR5cEe2WBIEXIm7FAnxQ5bo' #token
 
 bot = telebot.TeleBot(api_token) 
 
-#словарь с локациями value здесь это кол-во бутылок в автомате по адресу
+#словарь с локациями; value здесь это кол-во бутылок в автомате по адресу
 locations = {
     'ТРЦ "Ривьера"':40,
     'ТЦК "Смоленский пассаж"':25,
